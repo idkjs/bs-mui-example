@@ -1,0 +1,11 @@
+{
+  "name": "reason-scripts",
+  "sources": ["src"],
+  "bs-dependencies": ["reason-react", "@jsiebern/bs-material-ui", "bs-jest"],
+  "reason": {
+    "react-jsx": 2
+  },
+  "ppx-flags": ["./node_modules/@jsiebern/bs-material-ui/ppx_withStyles"],
+  "bsc-flags": ["-bs-super-errors"],
+  "refmt": 3
+}
