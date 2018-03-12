@@ -1,7 +1,12 @@
 {
   "name": "reason-scripts",
   "sources": ["src"],
-  "bs-dependencies": ["reason-react", "@jsiebern/bs-material-ui", "bs-jest"],
+  "bs-dependencies": [
+    "reason-react",
+    "@jsiebern/bs-material-ui",
+    "bs-jest",
+    "reason-reroute"
+  ],
   "reason": {
     "react-jsx": 2
   },
