@@ -2,23 +2,24 @@ let str = ReasonReact.stringToElement;
 
 module RouterConfig = {
   type route =
+    | Home
     | ExampleList
     | ExampleClassOverride
     | ExampleWithStylesSafe
     | ExampleWithStylesUnsafe;
   let routeFromUrl = (url: ReasonReact.Router.url) =>
     switch (url.path) {
-    | [] => ExampleList
+    | [] => Home
     | ["exampleList"] => ExampleList
     | ["exampleClassOverride"] => ExampleClassOverride
     | ["exampleWithStylesUnsafe"] => ExampleWithStylesUnsafe
     | ["exampleWithStylesSafe"] => ExampleWithStylesSafe
-    | _ => ExampleList
+    | _ => Home
     };
   let routeToUrl = (route: route) =>
     switch (route) {
+    | Home => "/"
     | ExampleList => "/exampleList"
-    | ExampleList => "/"
     | ExampleClassOverride => "/exampleClassOverride"
     | ExampleWithStylesUnsafe => "/exampleWithStylesUnsafe"
     | ExampleWithStylesSafe => "/exampleWithStylesSafe"
@@ -38,6 +39,12 @@ let make = _children => {
              <div>
                <nav>
                  <div className="active">
+                   <Router.Link route=Home>
+                     (str("Home"))
+                     <span className="fa fa-music" />
+                   </Router.Link>
+                 </div>
+                 <div>
                    <Router.Link route=ExampleList>
                      (str("ExampleList"))
                      <span className="fa fa-music" />
@@ -64,7 +71,7 @@ let make = _children => {
                </nav>
                (
                  switch (currentRoute) {
-                 /* | RouterConfig.Home => <Home /> */
+                 | RouterConfig.Home => <Home />
                  | RouterConfig.ExampleList => <ExampleList />
                  | RouterConfig.ExampleClassOverride =>
                    <ExampleClassOverride />
