@@ -36,39 +36,32 @@ let make = _children => {
     <Router.Container>
       ...(
            (~currentRoute) =>
-             <div>
-               <nav>
+             <div className="container">
+               <div className="nav">
                  <div className="active">
-                   <Router.Link route=Home>
-                     (str("Home"))
-                     <span className="fa fa-music" />
-                   </Router.Link>
+                   <Router.Link route=Home> (str("Home")) </Router.Link>
                  </div>
                  <div>
                    <Router.Link route=ExampleList>
                      (str("ExampleList"))
-                     <span className="fa fa-music" />
                    </Router.Link>
                  </div>
                  <div>
                    <Router.Link route=ExampleClassOverride>
                      (str("ExampleClassOverride"))
                    </Router.Link>
-                   <span className="fa fa-search" />
                  </div>
                  <div>
                    <Router.Link route=ExampleWithStylesUnsafe>
                      (str("ExampleWithStylesUnsafe"))
-                     <span className="fa fa-list" />
                    </Router.Link>
                  </div>
                  <div>
                    <Router.Link route=ExampleWithStylesSafe>
                      (str("ExampleWithStylesSafe"))
-                     <span className="fa fa-search" />
                    </Router.Link>
                  </div>
-               </nav>
+               </div>
                (
                  switch (currentRoute) {
                  | RouterConfig.Home => <Home />
